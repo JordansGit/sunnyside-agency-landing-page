@@ -1,0 +1,16 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+.img-desktop, .header-nav {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .img-desktop, .header-nav {
+    display: block;
+  }
+  .img-mobile {
+    display: none;
+  }
+}
+
