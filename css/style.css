@@ -1,11 +1,108 @@
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
 
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, ul, li, a, img {
+  margin: 0;
+}
+
+:root {
+  /* Primary */ 
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --dark-desaturated-cyan: hsl(167, 40%, 24%); /* graphic design text */ 
+  --dark-blue: hsl(198, 62%, 26%); /* photography text */ 
+  --dark-moderate-cyan: hsl(168, 34%, 41%); /* footer */ 
+
+  /* Neutral */ 
+  --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+  --very-dark-grayish-blue: hsl(213, 9%, 39%);
+  --dark-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+
+/* =================
+Typography
+================= */
+
+h1, h2, h3, h4, .learn-more-btn {
+  font-family: 'Fraunces', serif;
+}
+p, nav {
+  font-family: 'Barlow', sans-serif;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  text-align: center;
+}
+
+/* Header */ 
+
+.header-title {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  letter-spacing: 5px;
+  font-weight: 900;
+}
+
+/* Main */ 
+
+.img-gallery-title-1, .img-gallery-title-2 {
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+
+.learn-more-btn {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.img-gallery-main-body {
+  line-height: 1.6;
+  margin: 1.6em 0 2em 0;
+}
+
+
+.img-gallery-main-body {
+}
+
+/* =================
+Layout
+================= */
+
+header, 
+.item-1, 
+.item-4,
+.img-gallery-text-overlay,
+.info,
+footer {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.item-1, 
+.item-4,
+.img-gallery-text-overlay,
+.info {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .img-desktop, .header-nav {
   display: none;
 }
 
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .img-desktop, .header-nav {
     display: block;
   }
@@ -14,3 +111,136 @@
   }
 }
 
+img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-header, .mobile-menu {
+  margin-left: unset;
+  margin-right: unset;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* justify-content not working with 1fr */
+}
+
+/* Header */ 
+header {
+  background: url(../images/mobile/image-header.jpg);
+  background-size: cover;
+  background-position: 50% 70%;
+  height: 530px;
+  padding-top: 1.8em;
+  grid-auto-rows: max-content;
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    background: url("../images/desktop/image-header.jpg");
+  }
+}
+
+.mobile-menu {
+  justify-self: end;
+}
+
+.header-title, .arrow-down-icon {
+  grid-column: 1 / -1;
+}
+
+.header-title {
+  margin: 2.1em 0 1.2em 0;
+}
+
+/* Main */ 
+.item {
+  grid-column: 1 / -1; 
+  width: 100%;
+  height: auto;
+}
+
+.item-1, .item-4 {
+  margin-top: 3.5em;
+  margin-bottom: 3.5em;
+}
+
+.item-1 {
+  order: 1;
+}
+
+.item-2 {
+  order: 0;
+  /*background: url("../images/mobile/image-transform.jpg");*/ 
+}
+
+.item-3 {
+  order: 2;
+  /*background: url("../images/mobile/image-stand-out.jpg");*/ 
+}
+
+.item-4 {
+  order: 3;
+}
+.item-5 {
+  order: 4;
+  background: url("../images/mobile/image-graphic-design.jpg");
+  color: var(--dark-desaturated-cyan);
+  position: relative;
+}
+
+.item-6 {
+  order: 5;
+  background: url("../images/mobile/image-photography.jpg");
+  color: var(--dark-blue);
+  position: relative;
+}
+
+.item-5, .item-6 {
+  width: 100%;
+  background-size: cover;
+  min-height: 600px;
+  height: 120vw;
+  max-height: 680px;
+  background-position: 50% 35%;
+}
+
+.img-gallery-main-img {
+}
+
+.img-gallery-text-overlay {
+  position: absolute;
+  bottom: 1.2em;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .item-1, .item-1, .item-1, .item-1, .item-1, .item-1 {
+    order: unset;
+  }
+
+  .item-2 {
+    background: url("../images/desktop/image-transform.jpg");
+  }
+  
+  .item-3 {
+    background: url("../images/desktop/image-stand-out.jpg");
+  }
+  
+  .item-5 {
+    background: url("../images/desktop/image-graphic-design.jpg");
+  }
+  
+  .item-6 {
+    background: url("../images/desktop/image-photography.jpg");
+  }
+}
+
+/* Footer */ 
+footer {
+  background: var(--dark-moderate-cyan);
+}
