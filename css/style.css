@@ -105,6 +105,13 @@ a {
   position: relative;
   width: max-content;
   padding: 0 8px;
+  margin: 0 auto;
+}
+
+@media (min-width: 760px) {
+  .learn-more-btn {
+    margin: 0;
+  }
 }
 
 .learn-more-btn::after {
@@ -266,7 +273,7 @@ ul {
   display: block;
 }
 
-.nav-header-container {
+.nav-header {
   display: none;
 }
 
@@ -275,8 +282,63 @@ ul {
   justify-content: center;
 }
 
-.nav-header {
-  flex-direction: row;
+.nav-header .nav-item {
+  padding: 1em 1em 1.1em;
+}
+
+#contact {
+  color: var(--very-dark-desaturated-blue);
+  border-radius: 2em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-right: 0;
+}
+
+@media (max-width: 849px) {
+  .nav-header {
+    position: absolute;
+    background: white;
+    width: 85vw;
+    left: 50%;
+    transform: translate(-50%, 0); 
+    top: 120px;
+  }
+
+  .nav-header::before {
+    content: "";
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent; 
+    border-right: 25px solid white; 
+    right: 0;
+    top: -25px;
+  }
+
+  .nav-header .nav-list {
+    flex-direction: column;
+    gap: 1.8em;
+    overflow: hidden;
+    padding: 2em 0 3.1em 0;
+    font-size: 1.1rem;
+  }
+
+  .nav-header .nav-item, 
+  .nav-header .nav-item:hover, 
+  .nav-header .nav-item:focus {
+    color: var(--dark-grayish-blue);
+  }
+
+  #contact {
+    background: var(--yellow);
+  }
+
+  .nav-header .nav-list li:last-child {
+    margin-top: 0.5em;
+  }
 }
 
 @media (min-width: 850px) {
@@ -284,33 +346,21 @@ ul {
     display: none;
   }
 
-  .nav-header-container {
+  .nav-header {
     display: block;
     justify-self: end;
     color: var(--white);
     margin-top: 5px;
   }
 
-  .nav-list {
-    flex-direction: row;
-  }
-
   .nav-header .nav-item {
     color: white;
-    padding: 1em 1em 1.1em;
     margin-left: 1em; 
     margin-right: 0.5em;
   }
 
   #contact {
     background: var(--white); 
-    color: var(--very-dark-desaturated-blue);
-    border-radius: 2em;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    padding-left: 2em;
-    padding-right: 2em;
-    margin-right: 0;
   }
 }
 
@@ -540,11 +590,18 @@ footer {
 
 /* To Do: 
 mobile nav menu - write the js, then write the nav without the white box design. e.g. flex column, save box for last. 
+<<<<<<< HEAD
 active states for learn more & nav. 
+=======
+>>>>>>> 2a043b8 (created mobile nav, update readme)
 
 ** DONE: 
 learn more design - use pseudo element :before or :after. the use height, width, border-radius, margin-top or top. check my css notes on how to do this. 
 desktop design ** DONE 
+<<<<<<< HEAD
+=======
+active states for learn more & nav. 
+>>>>>>> 2a043b8 (created mobile nav, update readme)
 
 
 */ 
