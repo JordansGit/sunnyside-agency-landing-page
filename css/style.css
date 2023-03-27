@@ -1,4 +1,4 @@
-.attribution { font-size: 11px; text-align: center; background: var(--dark-moderate-cyan)}
+.attribution { font-size: 11px; text-align: center; background: hsl(168, 34%, 70%)}
 .attribution a { color: hsl(228, 45%, 44%); }
 
 * {
@@ -69,6 +69,12 @@ a {
   font-weight: 900;
 }
 
+@media (min-height: 1200px) {
+  .header-title {
+    font-size: 3rem;
+  }
+}
+
 /* Nav */ 
 
 .nav-item {
@@ -82,6 +88,13 @@ a {
   font-size: 1.7rem;
 }
 
+@media (min-width: 1200px) {
+  .img-gallery-title-1 {
+    font-size: 2.2rem;
+  }
+  
+}
+
 .img-gallery-title-1, .learn-more-btn, .info-name {
   color: var(--very-dark-desaturated-blue);
 }
@@ -89,6 +102,29 @@ a {
 .learn-more-btn {
   text-transform: uppercase;
   font-weight: 900;
+  position: relative;
+  width: max-content;
+  padding: 0 8px;
+}
+
+.learn-more-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 10px;
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0.3;
+}
+
+.item-1 .learn-more-btn::after {
+  background: var(--yellow);
+}
+
+.item-4 .learn-more-btn::after {
+  background: var(--soft-red);
 }
 
 .img-gallery-main-body {
@@ -123,6 +159,12 @@ a {
   font-weight: 900;
 }
 
+@media (min-width: 800px) {
+  .info-title {
+    font-size: 1.1rem;
+  }
+}
+
 /* =================
 Layout
 ================= */
@@ -144,6 +186,13 @@ footer {
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+  .item-1, 
+  .item-4 {
+    max-width: 525px;
+  }
 }
 
 img {
@@ -173,6 +222,12 @@ header {
     background: url("../images/desktop/image-header.jpg");
     background-size: cover;
     background-position: 50% 50%;
+    min-height: 530px;
+    max-height: 800px;
+    height: 80vw;
+  }
+  .arrow-down-icon {
+    margin-top: 6em;
   }
 }
 
@@ -224,7 +279,7 @@ ul {
   flex-direction: row;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 850px) {
   .mobile-menu {
     display: none;
   }
@@ -240,7 +295,7 @@ ul {
     flex-direction: row;
   }
 
-  .nav-item {
+  .nav-header .nav-item {
     color: white;
     padding: 1em 1em 1.1em;
     margin-left: 1em; 
@@ -390,7 +445,9 @@ ul {
     max-width: unset;
     column-gap: 2em;
     justify-content: center;    
-
+    max-width: 1300px;
+    padding-left: unset;
+    padding-right: unset;
   }
   .info-title {
     grid-column: 1 / -1;
@@ -427,7 +484,8 @@ ul {
 
 /* Footer */ 
 footer {
-  background: var(--dark-moderate-cyan); /* need to change this */ 
+  /*background: var(--dark-moderate-cyan); need to change this */ 
+  background: hsl(168, 34%, 70%);
   padding-top: 3.8em;
   padding-bottom: 4em;
 }
@@ -442,7 +500,7 @@ footer {
 
 .nav-footer {
   margin: 2.5em 0 4em;
-  gap: 15%;
+  gap: 3em;
   flex-wrap: wrap;
 }
 
@@ -461,6 +519,10 @@ footer {
   cursor: pointer;
 }
 
+.learn-more-btn:hover::after {
+  opacity: 1;
+}
+
 .nav-item:hover, .nav-item:focus {
   color: var(--white);
 }
@@ -469,10 +531,20 @@ footer {
   fill: var(--white);
 }
 
+@media (min-width: 850px) {
+  #contact:hover {
+    color: var(--white);
+    background: rgba(35, 48, 62, 0.1); /* not the exact colour but cba to spend time looking for it */ 
+  }
+}
+
 /* To Do: 
-learn more design 
-mobile nav menu
+mobile nav menu - write the js, then write the nav without the white box design. e.g. flex column, save box for last. 
 active states for learn more & nav. 
+
+** DONE: 
+learn more design - use pseudo element :before or :after. the use height, width, border-radius, margin-top or top. check my css notes on how to do this. 
 desktop design ** DONE 
+
 
 */ 
